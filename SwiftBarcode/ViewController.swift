@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BarcodeDelegate {
 
+    @IBOutlet weak var codeTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +21,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("Segue!")
+        
+        let barcodeViewController: BarcodeViewController = segue.destinationViewController as BarcodeViewController
+        barcodeViewController.delegate = self
+        
+    }
+    
+    func barcodeReaded(barcode: String) {
+        println("Barcode leido: \(barcode)")
+        codeTextView.text = barcode
+    }
 }
 

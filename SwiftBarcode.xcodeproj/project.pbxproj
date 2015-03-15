@@ -13,6 +13,8 @@
 		5724C3FC1AB4D5780012BAFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5724C3FB1AB4D5780012BAFE /* Images.xcassets */; };
 		5724C3FF1AB4D5780012BAFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5724C3FD1AB4D5780012BAFE /* LaunchScreen.xib */; };
 		5724C40B1AB4D5780012BAFE /* SwiftBarcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5724C40A1AB4D5780012BAFE /* SwiftBarcodeTests.swift */; };
+		5724C4171AB4D74A0012BAFE /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5724C4161AB4D74A0012BAFE /* BarcodeViewController.swift */; };
+		5724C4191AB4DB1E0012BAFE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5724C4181AB4DB1E0012BAFE /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		5724C4041AB4D5780012BAFE /* SwiftBarcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBarcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5724C4091AB4D5780012BAFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5724C40A1AB4D5780012BAFE /* SwiftBarcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBarcodeTests.swift; sourceTree = "<group>"; };
+		5724C4161AB4D74A0012BAFE /* BarcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarcodeViewController.swift; path = ../BarcodeViewController.swift; sourceTree = "<group>"; };
+		5724C4181AB4DB1E0012BAFE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5724C4191AB4DB1E0012BAFE /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		5724C3E61AB4D5780012BAFE = {
 			isa = PBXGroup;
 			children = (
+				5724C4181AB4DB1E0012BAFE /* AVFoundation.framework */,
 				5724C3F11AB4D5780012BAFE /* SwiftBarcode */,
 				5724C4071AB4D5780012BAFE /* SwiftBarcodeTests */,
 				5724C3F01AB4D5780012BAFE /* Products */,
@@ -79,6 +85,7 @@
 			children = (
 				5724C3F41AB4D5780012BAFE /* AppDelegate.swift */,
 				5724C3F61AB4D5780012BAFE /* ViewController.swift */,
+				5724C4161AB4D74A0012BAFE /* BarcodeViewController.swift */,
 				5724C3F81AB4D5780012BAFE /* Main.storyboard */,
 				5724C3FB1AB4D5780012BAFE /* Images.xcassets */,
 				5724C3FD1AB4D5780012BAFE /* LaunchScreen.xib */,
@@ -214,6 +221,7 @@
 			files = (
 				5724C3F71AB4D5780012BAFE /* ViewController.swift in Sources */,
 				5724C3F51AB4D5780012BAFE /* AppDelegate.swift in Sources */,
+				5724C4171AB4D74A0012BAFE /* BarcodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

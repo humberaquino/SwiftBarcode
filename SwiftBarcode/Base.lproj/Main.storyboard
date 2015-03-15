@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SwiftBarcode" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,85 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0h-Tt-kmz">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Get code">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Obh-tq-dnX" kind="show" id="faQ-gD-kx9"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlJ-Xn-3N8">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="UlJ-Xn-3N8" secondAttribute="centerX" id="8vR-Lj-OPJ"/>
+                            <constraint firstItem="UlJ-Xn-3N8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Jbb-Md-JvT"/>
+                            <constraint firstItem="UlJ-Xn-3N8" firstAttribute="top" secondItem="O0h-Tt-kmz" secondAttribute="bottom" constant="8" id="OA1-XH-iaX"/>
+                            <constraint firstAttribute="centerY" secondItem="O0h-Tt-kmz" secondAttribute="centerY" constant="265" id="jvH-2p-gh7"/>
+                            <constraint firstAttribute="centerY" secondItem="UlJ-Xn-3N8" secondAttribute="centerY" constant="162" id="k9L-RA-lxd"/>
+                            <constraint firstAttribute="centerX" secondItem="O0h-Tt-kmz" secondAttribute="centerX" constant="-9" id="ufq-Qg-WJf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="O0h-Tt-kmz"/>
+                                <exclude reference="UlJ-Xn-3N8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8vR-Lj-OPJ"/>
+                                <exclude reference="Jbb-Md-JvT"/>
+                                <exclude reference="OA1-XH-iaX"/>
+                                <exclude reference="k9L-RA-lxd"/>
+                                <exclude reference="jvH-2p-gh7"/>
+                                <exclude reference="ufq-Qg-WJf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="O0h-Tt-kmz"/>
+                                <include reference="UlJ-Xn-3N8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8vR-Lj-OPJ"/>
+                                <include reference="Jbb-Md-JvT"/>
+                                <include reference="OA1-XH-iaX"/>
+                                <include reference="k9L-RA-lxd"/>
+                                <include reference="jvH-2p-gh7"/>
+                                <include reference="ufq-Qg-WJf"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="codeTextView" destination="UlJ-Xn-3N8" id="zN4-oA-RCC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="459" y="387"/>
+        </scene>
+        <!--Barcode View Controller-->
+        <scene sceneID="eSd-EN-0K8">
+            <objects>
+                <viewController id="Obh-tq-dnX" customClass="BarcodeViewController" customModule="SwiftBarcode" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sy3-D1-zfi"/>
+                        <viewControllerLayoutGuide type="bottom" id="96O-8a-kEM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gPS-st-z5M">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EFo-4D-f4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1347" y="387"/>
         </scene>
     </scenes>
 </document>
