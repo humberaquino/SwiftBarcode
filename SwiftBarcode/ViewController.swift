@@ -23,15 +23,15 @@ class ViewController: UIViewController, BarcodeDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("Segue!")
+        print("Segue!")
         
-        let barcodeViewController: BarcodeViewController = segue.destinationViewController as BarcodeViewController
+        let barcodeViewController: BarcodeViewController = segue.destinationViewController as! BarcodeViewController
         barcodeViewController.delegate = self
         
     }
     
     func barcodeReaded(barcode: String) {
-        println("Barcode leido: \(barcode)")
+        print("Barcode leido: \(barcode)")
         codeTextView.text = barcode
     }
 }

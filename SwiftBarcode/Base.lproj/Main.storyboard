@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +21,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0h-Tt-kmz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Get code">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -28,11 +31,13 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlJ-Xn-3N8">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="UlJ-Xn-3N8" secondAttribute="centerX" id="8vR-Lj-OPJ"/>
@@ -48,12 +53,12 @@
                                 <exclude reference="UlJ-Xn-3N8"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="jvH-2p-gh7"/>
+                                <exclude reference="ufq-Qg-WJf"/>
                                 <exclude reference="8vR-Lj-OPJ"/>
                                 <exclude reference="Jbb-Md-JvT"/>
                                 <exclude reference="OA1-XH-iaX"/>
                                 <exclude reference="k9L-RA-lxd"/>
-                                <exclude reference="jvH-2p-gh7"/>
-                                <exclude reference="ufq-Qg-WJf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -62,12 +67,12 @@
                                 <include reference="UlJ-Xn-3N8"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="jvH-2p-gh7"/>
+                                <include reference="ufq-Qg-WJf"/>
                                 <include reference="8vR-Lj-OPJ"/>
                                 <include reference="Jbb-Md-JvT"/>
                                 <include reference="OA1-XH-iaX"/>
                                 <include reference="k9L-RA-lxd"/>
-                                <include reference="jvH-2p-gh7"/>
-                                <include reference="ufq-Qg-WJf"/>
                             </mask>
                         </variation>
                     </view>
@@ -88,7 +93,9 @@
                         <viewControllerLayoutGuide type="bottom" id="96O-8a-kEM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gPS-st-z5M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>

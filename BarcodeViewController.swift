@@ -26,29 +26,33 @@ class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         let videoCaptureDevice: AVCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         
-        var error: NSError?
-        let videoInput = AVCaptureDeviceInput.deviceInputWithDevice(videoCaptureDevice, error: &error) as AVCaptureDeviceInput
-        
-        if self.captureSession.canAddInput(videoInput) {
-            self.captureSession.addInput(videoInput)
-        } else {
-            println("Could not add video input: \(error?.localizedDescription)")
-        }
-        
-        let metadataOutput = AVCaptureMetadataOutput()
-        if self.captureSession.canAddOutput(metadataOutput) {
-            self.captureSession.addOutput(metadataOutput)
+        do {
+
+            let videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
             
-            metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code]
-        } else {
-            println("Could not add metadata output")
+            if self.captureSession.canAddInput(videoInput) {
+                self.captureSession.addInput(videoInput)
+            } else {
+                print("Could not add video input")
+            }
+            
+            let metadataOutput = AVCaptureMetadataOutput()
+            if self.captureSession.canAddOutput(metadataOutput) {
+                self.captureSession.addOutput(metadataOutput)
+                
+                metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+                metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code]
+            } else {
+                print("Could not add metadata output")
+            }
+            
+            let previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+            previewLayer.frame = self.view.layer.bounds
+            self.view.layer .addSublayer(previewLayer)
+            self.captureSession.startRunning()
+        } catch let error as NSError {
+            print("Error while creating vide input device: \(error.localizedDescription)")
         }
-        
-        let previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-        previewLayer.frame = self.view.layer.bounds
-        self.view.layer .addSublayer(previewLayer)
-        self.captureSession.startRunning()
         
     }
 
@@ -59,7 +63,7 @@ class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         for metadata in metadataObjects {
-            let readableObject = metadata as AVMetadataMachineReadableCodeObject
+            let readableObject = metadata as! AVMetadataMachineReadableCodeObject
             let code = readableObject.stringValue
             if !code.isEmpty {
                 self.captureSession.stopRunning()
